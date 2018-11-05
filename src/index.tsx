@@ -33,6 +33,7 @@ export interface SvgTermOptions {
   width?: number;
   window?: boolean;
   cursor?: boolean;
+  speed?: number;
 }
 
 export type SvgTermColor = [number, number, number];
@@ -118,7 +119,7 @@ export function render(raw: string, options: SvgTermOptions = {}): string {
             theme={theme}
             />
           <Reel
-            duration={data.duration}
+            duration={data.duration / options.speed}
             frameWidth={cast.width}
             stamps={data.stamps}
             width={data.frames.length * cast.width}
